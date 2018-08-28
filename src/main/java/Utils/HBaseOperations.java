@@ -17,7 +17,7 @@ public interface HBaseOperations {
 
     Result[] batchGet(String tableName, List<Get> getList) throws IOException;
 
-    void put(String tableName, final String rowName, final String familyName, final String qualifier, final byte[] data) throws IOException;
+    void put(String tableName, final String rowName, final String familyName, final String qualifier, final String data) throws IOException;
 
     void batchPut(String tableName, List<Put> putList) throws Exception;
 

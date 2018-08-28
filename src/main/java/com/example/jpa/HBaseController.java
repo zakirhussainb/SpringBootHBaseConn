@@ -30,9 +30,9 @@ public class HBaseController extends CrudRepository {
         return "Hello Guys....****";
     }
 
-    @GetMapping(value="/getResult")
-    public Result getResult(@RequestBody String tableName, @RequestBody String rowName, @RequestBody String familyName, @RequestBody String qualifier) throws Exception{
-        return get(tableName,rowName,familyName,qualifier);
+    @GetMapping(value = "/getResult")
+    public Result getResult(@RequestBody String tableName, @RequestBody String rowName, @RequestBody String familyName, @RequestBody String qualifier) throws Exception {
+        return get(tableName, rowName, familyName, qualifier);
     }
 
     /*@PostMapping(value = "/create")
@@ -57,8 +57,6 @@ public class HBaseController extends CrudRepository {
 
         return hbaseTemplate.get(tableName,rowName,familyName,qualifier,);
     }*/
-
-
 
 
 }

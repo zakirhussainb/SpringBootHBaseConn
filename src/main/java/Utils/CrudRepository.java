@@ -9,13 +9,24 @@ import java.util.List;
 
 public class CrudRepository implements HBaseOperations {
 
-    private HBaseConfiguration hBaseConfiguration;
+//    HBaseConfiguration hBaseConfiguration;
+    /*String host = "18.188.77.36";
+    String port = "2181";
+    HBaseConfig hBaseConfig = new HBaseConfig(host,port);
+    Configuration config =  hBaseConfig.connect();
+    Connection connection = ConnectionFactory.createConnection(config);*/
 
-    private Connection connection;
+    HBaseConfiguration hBaseConfiguration = new HBaseConfiguration();
+//    hBaseConfiguration.setupConnection();
+    Connection connection = hBaseConfiguration.getHBaseConnection();
+
 
     public CrudRepository() throws IOException {
-        connection = hBaseConfiguration.getHBaseConnection();
     }
+
+   /* public CrudRepository() throws IOException {
+        connection = hBaseConfiguration.getHBaseConnection();
+    }*/
 
     @Override
     public Result get(String tableName, String rowName) throws Exception {
@@ -55,10 +66,10 @@ public class CrudRepository implements HBaseOperations {
     }
 
     @Override
-    public void put(String tableName, String rowName, String familyName, String qualifier, byte[] data) throws IOException {
+    public void put(String tableName, String rowName, String familyName, String qualifier, String data) throws IOException {
         Table table = connection.getTable(TableName.valueOf(tableName));
         Put put = new Put(rowName.getBytes());
-        put.addColumn(familyName.getBytes(), qualifier.getBytes(), data);
+        put.addColumn(familyName.getBytes(), qualifier.getBytes(), data.getBytes());
         table.put(put);
         table.close();
     }

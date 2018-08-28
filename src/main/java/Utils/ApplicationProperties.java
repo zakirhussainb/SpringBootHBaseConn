@@ -109,7 +109,7 @@ public class ApplicationProperties {
 
     public static class Hbase {
 
-        private String master = "18.188.77.36";
+        private String master;
 
         private final Zookeeper zookeeper = new Zookeeper();
 
@@ -128,7 +128,7 @@ public class ApplicationProperties {
         public static class Zookeeper {
 
             private final Property property = new Property();
-            private String quorum = "18.188.77.36";
+            private String quorum ;
 
             public String getQuorum() {
                 return quorum;
@@ -143,7 +143,7 @@ public class ApplicationProperties {
             }
 
             public static class Property {
-                private String clientPort = "2181";
+                private String clientPort;
 
                 public String getClientPort() {
                     return clientPort;

@@ -1,0 +1,24 @@
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+application:
+  hbase:
+    zookeeper:
+      quorum: 18.188.77.36
+      property:
+        client-port: 2181
+    master: 18.188.77.36:60000
+  kafka:
+    analytics:
+      topic: xedflix-analytics-test
+      group-id: xedflix-analytics-test-group
+    common:
+      bootstrap:
+        servers: localhost:9093
+      acks: all
